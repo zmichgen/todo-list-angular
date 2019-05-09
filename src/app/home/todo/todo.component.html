@@ -1,0 +1,20 @@
+<div class="todo-item">
+  <app-badge [color]="data.color" [letter]="data.name[0] | uppercase"></app-badge>
+  <div class=todo-content>
+    <p class="name">
+      {{data.name}}
+    </p>
+    <p class="description">
+      {{data.description}}
+    </p>
+  </div>
+  <span class="priority" *ngIf="(priority === '0' || priority === '2') && !data.isDone">
+    <strong>
+      <mat-icon *ngIf="priority === '0'">arrow_upward</mat-icon>
+      <mat-icon *ngIf="priority === '2'">arrow_downward</mat-icon>
+      {{priorityString[data.priority]}} priority
+    </strong>
+  </span>
+  <app-time [isDone]="data.isDone" [time]="data.dateTime | date: 'dd MMM yyyy H:mm'"></app-time>
+  <app-menu [todoData]="data" [id]="id"></app-menu>
+</div>

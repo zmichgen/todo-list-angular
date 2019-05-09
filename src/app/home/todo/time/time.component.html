@@ -1,0 +1,8 @@
+<span class="date-time">
+  <span class="completed" *ngIf="isDone">
+    <mat-icon>schedule</mat-icon>Completed
+  </span>
+  <span class="time" *ngIf="!isDone">
+    <mat-icon>schedule</mat-icon>{{time}}
+  </span>
+</span>

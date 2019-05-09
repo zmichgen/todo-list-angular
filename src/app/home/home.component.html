@@ -1,0 +1,20 @@
+<div class="content-container" cdkDropListGroup>
+  <app-view *ngIf="todos.length || complete.length"></app-view>
+  <section *ngIf="todos.length">
+    <h2>To Do ({{todos.length}})</h2>
+    <div cdkDropList [cdkDropListData]='todos' class='example-list' (cdkDropListDropped)="drop($event)">
+      <app-todo class="box" *ngFor="let todo of todos; let i = index" [todo]="todo" cdkDrag></app-todo>
+    </div>
+  </section>
+
+  <section *ngIf="complete.length">
+    <h2>Completed ({{complete.length}})</h2>
+    <div cdkDropList [cdkDropListData]='complete' class='example-list' (cdkDropListDropped)="drop($event)">
+      <app-todo class="box" *ngFor="let todo of complete; let i = index" [todo]="todo" cdkDrag></app-todo>
+    </div>
+  </section>
+
+  <section *ngIf="!complete.length&&!todos.length">
+    <p>Loading todos...</p>
+  </section>
+</div>

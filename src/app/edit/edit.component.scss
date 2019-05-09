@@ -1,0 +1,23 @@
+.edit-todo {
+  padding: 80px 40px 0;
+  h2 {
+    text-align: center;
+    color: rgb(129, 143, 182);
+  }
+  form {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    .input-style {
+      width: 100%;
+    }
+    mat-checkbox {
+      margin-right: 15px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+div {
+  font-size: 2em;
+  font-weight: bold;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: white;
+  position: relative;
+  span {
+    position: absolute;
+    left: 19px;
+    top: 10px;
+  }
+}

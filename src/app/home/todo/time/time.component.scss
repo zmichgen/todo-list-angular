@@ -1,0 +1,27 @@
+.date-time {
+  font-size: 0.9em;
+  position: absolute;
+  top: 0;
+  right: 50px;
+  .time {
+    position: relative;
+    top: 0;
+    right: 0;
+    color: rgb(170, 168, 168);
+    mat-icon {
+      position: relative;
+      font-size: 1.3em;
+      top: 5px;
+    }
+  }
+  .completed {
+    position: relative;
+    right: 50px;
+    color: rgb(48, 224, 48);
+    mat-icon {
+      position: relative;
+      font-size: 1.3em;
+      top: 5px;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.app-container {
+  background: rgb(224, 224, 224);
+  .sidenav {
+    position: fixed;
+    background: rgb(1, 14, 43);
+  }
+  .app-toolbar {
+    position: fixed;
+    z-index: 25;
+    font-size: 1.5em;
+    background: white;
+    box-shadow: 2px 2px 5px gray;
+
+    .toolbar-menu {
+      position: absolute;
+      top: 12px;
+    }
+
+    .button-menu-close {
+      position: relative;
+      &:hover {
+        cursor: pointer;
+        &:before {
+          content: "◄";
+          font-size: 0.5em;
+          color: rgb(19, 79, 107);
+          position: absolute;
+          left: -15px;
+          top: 0;
+        }
+      }
+    }
+    .button-menu-open {
+      position: relative;
+      &:hover {
+        cursor: pointer;
+        &:before {
+          content: "►";
+          font-size: 0.5em;
+          color: rgb(19, 79, 107);
+          position: absolute;
+          right: -15px;
+          top: 0;
+        }
+      }
+    }
+  }
+}

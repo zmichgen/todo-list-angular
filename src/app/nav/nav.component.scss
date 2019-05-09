@@ -1,0 +1,41 @@
+nav {
+  color: white;
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    mat-icon {
+      font-size: 1.1em;
+      position: relative;
+      top: 4px;
+      padding-right: 10px;
+      color: rgb(64, 125, 182);
+    }
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px 90px 10px 20px;
+    border-left: 5px solid rgb(1, 14, 43);
+    transition-duration: 300ms;
+    mat-icon {
+      font-size: 1.1em;
+      position: relative;
+      top: 3px;
+      color: rgb(64, 125, 182);
+    }
+    p {
+      transition-duration: 300ms;
+    }
+    p:hover {
+      transform: scale(1.1, 1.1);
+    }
+    p:active {
+      transform: scale(1, 1);
+    }
+  }
+  .router-link-active {
+    border-left: 5px solid rgb(64, 112, 201);
+    background: rgba(64, 112, 201, 0.1);
+  }
+}

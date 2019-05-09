@@ -1,0 +1,15 @@
+<div class="toolbar-menu">
+  <button mat-icon-button (click)="sortByDate()">
+    <mat-icon>alarm</mat-icon>
+  </button>
+  <button mat-icon-button (click)="sortByPriority()">
+    <mat-icon>filter_list</mat-icon>
+  </button>
+  <button mat-icon-button (click)="sortByName()">
+    <mat-icon>sort_by_alpha</mat-icon>
+  </button>
+  <button class="add-todo" (click)="addTodo()" mat-button>
+    <mat-icon>add</mat-icon>
+    <span>Add ToDo</span>
+  </button>
+</div>

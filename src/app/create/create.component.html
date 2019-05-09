@@ -1,0 +1,26 @@
+<div class="add-todo">
+
+  <form class="edit-form" [formGroup]="addForm" novalidate (ngSubmit)="onSubmit(addForm.value)">
+    <h2>Add ToDo</h2>
+    <mat-form-field class="input-style">
+      <input matInput placeholder="Todo Name" class="form-control" formControlName="name">
+    </mat-form-field>
+    <mat-form-field class="input-style">
+      <input matInput placeholder="Todo Description" class="form-control" formControlName="description">
+    </mat-form-field>
+
+    <mat-checkbox class="form-checkbox" formControlName="isDone">Todo completed</mat-checkbox>
+    <mat-form-field class="priority">
+      <mat-label>Priority</mat-label>
+      <select matNativeControl required formControlName="priority">
+        <option value="0">HIGHT</option>
+        <option value="1">MEDIUM</option>
+        <option value="2">LOW</option>
+      </select>
+    </mat-form-field>
+    <div class="buttons">
+      <button mat-raised-button class="submit-button" color="primary" type="submit">Save</button>
+      <button mat-raised-button type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

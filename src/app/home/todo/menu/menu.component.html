@@ -1,0 +1,22 @@
+<mat-menu #menu="matMenu">
+  <button (click)="delTodo($event)" mat-menu-item>
+    <mat-icon>delete</mat-icon>
+    <span>Delete</span>
+  </button>
+  <button (click)="editTodo()" mat-menu-item>
+    <mat-icon>edit</mat-icon>
+    <span>Edit</span>
+  </button>
+  <button (click)="toggleTodo($event)" *ngIf="!isDone" mat-menu-item>
+    <mat-icon>check_circle</mat-icon>
+    <span>Complete</span>
+  </button>
+  <button (click)="toggleTodo($event)" *ngIf="isDone" mat-menu-item>
+    <mat-icon>replay</mat-icon>
+    <span>Repeat</span>
+  </button>
+</mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>

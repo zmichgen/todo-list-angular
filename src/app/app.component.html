@@ -1,0 +1,28 @@
+<mat-sidenav-container class="app-container">
+
+  <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened">
+
+    <app-nav></app-nav>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar class="app-toolbar">
+      <span *ngIf="opened" id="toggleButton" (click)="sidenav.toggle()" class="button-menu-close">
+        <fa-icon [icon]="menu"></fa-icon>
+      </span>
+      <span *ngIf="!opened" id="toggleButton" (click)="sidenav.toggle()" class="button-menu-open">
+        <fa-icon [icon]="menu"></fa-icon>
+      </span>
+
+      <app-toolbar-menu class="toolbar-menu" *ngIf="!opened" style="right: 40px"></app-toolbar-menu>
+      <app-toolbar-menu class="toolbar-menu" *ngIf="opened" style="right: 240px"></app-toolbar-menu>
+
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
