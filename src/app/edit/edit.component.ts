@@ -42,7 +42,7 @@ export class EditComponent implements OnInit {
 
   onSubmit(value) {
     if (!value.priority) {
-      value.priority = 0;
+      value.priority = '0';
     }
     if (!value.isDone) {
       value.isDone = false;
