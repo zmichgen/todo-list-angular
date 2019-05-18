@@ -6,20 +6,25 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  styleUrls: ['./create.component.scss'],
 })
 export class CreateComponent implements OnInit {
   addForm: FormGroup;
   colors: string[] = [
-    'green', 'blue', 'orange', 'rgb(110, 45, 45)',
-    'rgb(41, 166, 175)', 'rgb(41, 166, 175)', 'rgb(95, 175, 41)'
+    'green',
+    'blue',
+    'orange',
+    'rgb(110, 45, 45)',
+    'rgb(41, 166, 175)',
+    'rgb(41, 166, 175)',
+    'rgb(95, 175, 41)',
   ];
   constructor(
     public fbService: FirebaseService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     this.createForm();
@@ -43,20 +48,29 @@ export class CreateComponent implements OnInit {
       isDone: new FormControl(),
       priority: new FormControl(),
       dateTime: new FormControl(),
-      color: new FormControl()
+      color: new FormControl(),
     });
   }
 
   onSubmit(value) {
+    if (!value.priority) {
+      value.priority = 0;
+    }
+    if (!value.isDone) {
+      value.isDone = false;
+    }
+    if (!value.name) {
+      value.name = 'Unknown';
+    }
+    if (!value.description) {
+      value.description = 'Unknown';
+    }
     value.dateTime = new Date().toISOString();
     value.color = this.randomColor();
-    this.fbService.createTodo(value)
-      .then(
-        res => {
-          this.resetFields();
-          this.router.navigate(['home']);
-        }
-      );
+    this.fbService.createTodo(value).then((res) => {
+      this.resetFields();
+      this.router.navigate(['home']);
+    });
   }
 
   cancel() {
@@ -67,5 +81,4 @@ export class CreateComponent implements OnInit {
   randomColor() {
     return this.colors[Math.floor(Math.random() * 7)];
   }
-
 }

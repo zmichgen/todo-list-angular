@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+  styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent implements OnInit {
   editForm: FormGroup;
@@ -15,11 +15,11 @@ export class EditComponent implements OnInit {
     public fbService: FirebaseService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {}
 
   ngOnInit() {
-    this.route.data.subscribe(routeData => {
+    this.route.data.subscribe((routeData) => {
       const data = routeData.data;
       if (data) {
         this.item = data.payload.data();
@@ -36,21 +36,29 @@ export class EditComponent implements OnInit {
       isDone: new FormControl(this.item.isDone),
       priority: new FormControl(this.item.priority),
       dateTime: new FormControl(this.item.dateTime),
-      color: new FormControl(this.item.color)
+      color: new FormControl(this.item.color),
     });
   }
 
   onSubmit(value) {
-    this.fbService.updateTodo(this.item.id, value)
-      .then(
-        res => {
-          this.router.navigate(['home']);
-        }
-      )
+    if (!value.priority) {
+      value.priority = 0;
+    }
+    if (!value.isDone) {
+      value.isDone = false;
+    }
+    if (!value.name) {
+      value.name = 'Unknown';
+    }
+    if (!value.description) {
+      value.description = 'Unknown';
+    }
+    this.fbService.updateTodo(this.item.id, value).then((res) => {
+      this.router.navigate(['home']);
+    });
   }
 
   cancel() {
     this.router.navigate(['home']);
   }
-
 }

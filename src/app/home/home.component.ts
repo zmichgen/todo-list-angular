@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
           }
         });
         this.todos = _.sortBy(todos, this.fbService.param);
+        console.log(this.todos);
         this.complete = complete;
         if (!this.fbService.ascend) {
           this.todos = _.reverse(this.todos);
